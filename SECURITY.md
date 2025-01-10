@@ -10,9 +10,8 @@
 
 We take the security of BitKey Electrum Server Checker seriously. If you discover a security vulnerability, please follow these steps:
 
-1. **Do Not** disclose the vulnerability publicly until it has been addressed.
-2. Report the vulnerability through GitHub Issue.
-3. Include:
+1. Report the vulnerability through GitHub Issue.
+2. Include:
    - A description of the vulnerability
    - Steps to reproduce
    - Potential impact
