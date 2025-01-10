@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "electrum-server-checker"
+version = "0.1.0"
+authors = [
+  { name="Steven Geller", email="stevengeller@protonmail.com" },
+]
+description = "Check if an Electrum server is compatible with BitKey"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "requests<2.31.0",
+    "urllib3<2.0.0"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/StevenGeller/electrum-server-checker"
+"Bug Tracker" = "https://github.com/StevenGeller/electrum-server-checker/issues"
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.3.0",
+]
+
+[project.scripts]
+electrum-server-check = "electrum_server_checker.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --cov=electrum_server_checker"
+testpaths = [
+    "tests",
+]
